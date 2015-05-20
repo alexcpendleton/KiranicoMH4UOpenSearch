@@ -1,36 +1,11 @@
-# node-js-getting-started
+# Kiranico MH4U Open Search Provider
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+I got tired of not being able to search Kiranico's MH4U from my address bar, so I did something about it.
 
-This application support the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+[http://k.mhquestboard.com/kiranicomh4u/discover](http://k.mhquestboard.com/kiranicomh4u/discover)
 
-## Running Locally
+If you go there your browser should add a search plugin. Hopefully you know what that is if you're here! Using this plugin it will offer search suggestions as you type, and when you submit it will go to the first result found. I tried to put browser-specific instructions on the discover page.
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
+# Technical Details
 
-```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
-```
-
-Your app should now be running on [k.mhquestboard.com](http://k.mhquestboard.com/).
-
-## Deploying to Heroku
-
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
-
-## Documentation
-
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+This is a Node.js Express web application. It currently runs on Heroku, but should theoretically run anywhere Express works.
