@@ -1,0 +1,158 @@
+<html>
+<head>
+<title>Kiranico.com/MH4U Open Search Support</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0">
+<link rel="search" type="application/opensearchdescription+xml" title="searchTitle" href="http://k.mhquestboard.com/kiranicomh4u/plugins?l=fr">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/platform/1.3.0/platform.min.js"></script>
+<style type="text/css">
+  .browser { display:none; }
+  #languagePicker a {
+    text-align:center;
+  }
+  .nav-pills>li+li {margin-left:0;}
+</style>
+</head>
+<script type="text/javascript">
+window.external.AddSearchProvider("http://k.mhquestboard.com/kiranicomh4u/plugins?l=fr");
+</script>
+<body>
+  <ul class="container well nav nav-pills" id="languagePicker">
+    <li class="col-md-2 chooseableLanguage " id="language_en">
+    <a href="http://k.mhquestboard.com/kiranicomh4u/discover?l=en" class="">English</a>
+    </li>
+    <li class="col-md-2 chooseableLanguage " id="language_de">
+    <a href="http://k.mhquestboard.com/kiranicomh4u/discover?l=de" class="">Deutsch</a>
+    </li>
+    <li class="col-md-2 chooseableLanguage active" id="language_fr">
+    <a href="http://k.mhquestboard.com/kiranicomh4u/discover?l=fr" class="">Français</a>
+    </li>
+    <li class="col-md-2 chooseableLanguage " id="language_es">
+    <a href="http://k.mhquestboard.com/kiranicomh4u/discover?l=es" class="">Español</a>
+    </li>
+    <li class="col-md-2 chooseableLanguage " id="language_it">
+    <a href="http://k.mhquestboard.com/kiranicomh4u/discover?l=it" class="">Italiano</a>
+    </li>
+    <li class="col-md-2 chooseableLanguage " id="language_ja">
+    <a href="http://k.mhquestboard.com/kiranicomh4u/discover?l=ja" class="">日本語</a>
+    </li>
+  </ul>
+  <div class="container browser" id="chromeInstructions">
+    <h2>Google Chrome</h2>
+    <p>
+      A dialog should have appeared that looks like this:
+    </p>
+    <p>
+      <img src="./public/chrome-dialog.png" alt="Chrome Dialog Example" height="182" />
+    </p>
+    <p>
+      You can use the defaults, or change it to your liking. Personally, I use
+      the keyword <em>kn</em> for convenience and distinction from kiranico.com.
+      Then press "OK".
+    </p>
+    <p>
+      To use it type your keyword into your omnibox and press the tab key.
+      You can now type your desired search like so!
+    </p>
+    <p>
+      <img src="./public/chrome-omnibox.png" alt="Chrome Omnibox Example" height="173" />
+    </p>
+  </div>
+  <div class="container browser" id="firefoxInstructions">
+    <h2>Firefox</h2>
+    <p>
+      A dialog should have appeared that looks like this. Click "Add".
+    </p>
+    <p>
+      <img src="./public/firefox-dialog.png" alt="Firefox Dialog Example" height="122" />
+    </p>
+    <p>
+      You will need to set this search plugin as your default. From "Preferences"
+      select the "Search" tab, then select kiranico/mh4u from the Default Search Engine
+      list as described below. This will allow you to get search suggestions in your
+      search bar, or to the first result found if typed in your location bar.
+    </p>
+    <p>
+      <img src="./public/firefox-default-search.png" alt="Firefox Setting the Default Search Example" height="386" />
+      <img src="./public/firefox-search-suggestions.png" alt="Firefox Search Suggestions Example" height="386" />
+    </p>
+  </div>
+  <div class="container browser" id="safariInstructions">
+    <h2>Safari</h2>
+    <p>
+      Safari should have automatically added this site as a search plugin just by
+      visiting this page. You can now get search suggestions in your address bar
+      if you prefix your search with "k.mhquestboard.com" and select the suggestions
+      as they appear, like so.
+    </p>
+    <p>
+      <img src="./public/safari-search-suggestions.png" alt="Safari Search Suggestions Example" width="521" />
+    </p>
+    <p>
+      I realize this is highly inconvenient, but I don't know what to do about it.
+      I am not a regular Safari user, so there may be a better way, and I'd be happy to hear about it.
+    </p>
+  </div>
+  <div class="container browser" id="mobileInstructions">
+    <h2>Mobile Browsers</h2>
+    <p>Sorry! Mobile browsers don't support OpenSearch yet. Try visiting this
+      site on your computer. Since you probably want to get to Kiranico, here's a shortcut:
+      <br /><a href="http://kiranico.com/mh4u/">http://kiranico.com/mh4u</a>
+    </p>
+  </div>
+  <div class="container browser" id="unrecognizedBrowser">
+    <h2>Other Browsers</h2>
+    <p>Sorry! I don't know how your browser handles OpenSearch plugins. Hopefully
+      by virtue of coming to this page intentionally you know how to manage from here.
+      If not, you have my deepest apologies.</p>
+    <h2>Mobile Browsers</h2>
+    <p>Sorry! Mobile browsers don't support OpenSearch yet. Try visiting this
+      site on your computer. Since you probably want to get to Kiranico, here's a shortcut:
+      <br /><a href="http://kiranico.com/mh4u/">http://kiranico.com/mh4u</a>
+    </p>
+  </div>
+
+  <script type="text/javascript">
+    function showDescriptionForBrowser() {
+      var name = platform.name,
+        selectorToShow = "#unrecognizedBrowser",
+        knownNameMap = {
+          "Chrome":"#chromeInstructions",
+          "Safari":"#safariInstructions",
+          "Firefox":"#firefoxInstructions"
+        },
+        isProbablyMobile = (/iPhone|iPod|iPad|Android|BlackBerry/).test(navigator.userAgent);
+      if(isProbablyMobile) {
+        selectorToShow = "#mobileInstructions";
+      } else {
+        var knownItem = knownNameMap[name];
+        if(knownItem) {
+          selectorToShow = knownItem;
+        }
+      }
+
+      if(selectorToShow) {
+        var node = document.querySelector(selectorToShow);
+        if(!node) return;
+        //node.classList.add("show");
+        node.style.display="block";
+        var languagePicker = document.querySelector("#languagePicker");
+        if(!languagePicker) return;
+        languagePicker.style.display = "block";
+      }
+  };
+  showDescriptionForBrowser();
+  //setTimeout(showDescriptionForBrowser, 1000);
+  </script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-34671988-4', 'auto');
+  ga('send', 'pageview');
+
+  </script>
+</body>
+</html>

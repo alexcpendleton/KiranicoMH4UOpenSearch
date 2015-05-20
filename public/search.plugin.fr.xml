@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>kiranico.com/mh4u</ShortName>
+  <Description>Search engine for Kiranico&#x27;s MH4U database</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16" type="image/png">http://kiranico.com/favicon.png</Image>
+  <Url type="text/html" method="get" template="http://k.mhquestboard.com/kiranicomh4u/first?s={searchTerms}&amp;l=fr"/>
+  <Url type="application/x-suggestions+json" method="get" template="http://k.mhquestboard.com/kiranicomh4u/suggest?s={searchTerms}&amp;l=fr"/>
+  <Url type="application/opensearchdescription+xml"
+     rel="self"
+     template="http://k.mhquestboard.com/kiranicomh4u/plugins?l=fr" />
+</OpenSearchDescription>
