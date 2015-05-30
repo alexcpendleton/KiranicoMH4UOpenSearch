@@ -5,7 +5,7 @@ var KiranicoMh4uSearcher = function(dataRepository, expressionBuilder) {
   this.expressionBuilder = expressionBuilder || this.comprehensiveExpressionBuilder;
 };
 KiranicoMh4uSearcher.prototype.regexQuote = function(str) {
-    return (str+'').replace(/[.?*+^$[\]\\(){}|-]/g, "\\\\$&");
+  return str.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&");
 };
 KiranicoMh4uSearcher.prototype.typeaheadExpressionBuilder = function(searchFor) {
   var escapedQuery = this.regexQuote(searchFor);
@@ -14,10 +14,15 @@ KiranicoMh4uSearcher.prototype.typeaheadExpressionBuilder = function(searchFor) 
   return new RegExp("^(?:" + escapedQuery + ")(.+$)", "i");
 };
 KiranicoMh4uSearcher.prototype.comprehensiveExpressionBuilder = function(searchFor) {
-  var escapedQuery = this.regexQuote(searchFor);
   // Really greedy, will search anywhere within a string
   // "ala" will match "alatreon", "congalala"
-  return new RegExp(searchFor.split('').join('\\w*').replace(/\W/, ""), 'i');
+  // Thus, we need to try to escape every character.
+  // + is a common MH token that needs escaping.
+  var parts = _.map(searchFor.split(''), function(i) {
+    return this.regexQuote(i);
+  }, this);
+  var escapedQuery = parts.join('\\w*').replace(/\W/, "");
+  return new RegExp(escapedQuery, 'i');
 };
 KiranicoMh4uSearcher.prototype.first = function(query, callback) {
   return this.search(query, callback, _.find);
